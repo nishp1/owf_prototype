@@ -29,40 +29,37 @@
 	<!--<script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script> -->
 </head>
 <body>
-
+		<!-- TODO: needs to go, and be replaced by fom-factor specific markup-->
 		<div id="banner" class="navbar">
 			<div class="navbar-inner">
-				<div class="container">
-					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</a>
-					<div class="nav-collapse">
-						<ul class="nav">
-							<li class="launchmenu-btn"><a href="#">Launchpad</a></li>
-							<li class="dashboards-btn"><a href="#">Dashboards</a></li>
-							<li class="settings-btn"><a href="#">Settings</a></li>
-							<li class="admin-btn"><a href="#">Admin Tools</a></li>
-						</ul>
-						<ul class="nav pull-right">
-							<li><a href="#">Test Admin 1</a></li>
-						</ul>
-					</div><!--/.nav-collapse -->
-				</div>
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="launchmenu-btn"><a href="#">Launchpad</a></li>
+						<li class="dashboards-btn"><a href="#">Dashboards</a></li>
+						<li class="settings-btn"><a href="#">Settings</a></li>
+						<li class="admin-btn"><a href="#">Admin Tools</a></li>
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#">Test Admin 1</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
 			</div>
 		</div>
 		
 		<div id="main">
-			<div class="hbox">
-				<div class="left red">
-				</div>
+			<div class="dashboard hbox">
+				<div class="left red pane"></div>
 				<div class="right vbox">
 					<div class="left hbox">
-						<div class="left green"></div>
-						<div class="right blue"></div>
+						<div class="left green pane"></div>
+						<div class="right blue pane"></div>
 					</div>
-					<div class="right yellow"></div>
+					<div class="right yellow pane"></div>
 				</div>
 			</div>
 		</div>
@@ -126,10 +123,7 @@
 					{{/if}}
 				</div>
 			</div>
-			<div class="body">
-				{{#if url}}
-					<iframe src="https://www.owfgoss.org" />
-					{{/if}}
+			<iframe src="https://www.owfgoss.org" frameborder="0" seamless/>
 			</div>
 		</script>
 
