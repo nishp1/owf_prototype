@@ -64,7 +64,12 @@ console.time('app');
 						}
 					})
 					.resizable({
-						helper: "ui-state-highlight"
+						start: function(event, ui) {
+							me.$mask.addClass('mask');
+						},
+						stop: function(event, ui) {
+							me.$mask.removeClass('mask');
+						}
 					});
 			});
 
