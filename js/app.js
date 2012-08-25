@@ -12,56 +12,59 @@ console.time('app');
 		},
 
 		initialize: function() {
-			var me = this,
-				$main = $('body')
-				//$main = $('#main'),
-				$mask = $('#doc-mask');
+			this.$body = $('body');
+			this.$mask = $('#doc-mask');
 
-			OWF.EventDispatcher.on("widget:launch", function(widget) {
+			OWF.EventDispatcher.on("widget:launch", this.launchWidgetInPane, this);
 
-				// var widgetCmp = new OWF.View.Panel({
-				// 	title: widget.namespace,
-				// 	url: widget.url,
-				// 	collapsible: true,
-				// 	closable: true
-				// });
-
-				// 
-
-				var widgetCmp = new OWF.View.Window({
-					title: widget.namespace,
-					url: widget.url,
-					closable: true,
-					minimizable: true,
-					maximizable: true
-				});
-
-				$main.append(widgetCmp.render().el);
-
-				widgetCmp.$el
-					.draggable({
-						start: function(event, ui) {
-							$mask.addClass('mask');
-						},
-						stop: function(event, ui) {
-							$mask.removeClass('mask');
-						}
-					})
-					.resizable({
-						helper: "ui-state-highlight"
-					});
-			});
-
-			me.launchmenuController = new OWF.Controller.LaunchMenu({
+			this.launchmenuController = new OWF.Controller.LaunchMenu({
 				view: {
 					selectedWidgetView: new OWF.View.SelectedWidget(),
 					mainView: new OWF.View.ThumbnailLayout()
 				}
 			});
 
-			me.banner.on('show:launchmenu', function() {
+			this.banner.on('show:launchmenu', function() {
 				OWF.EventDispatcher.trigger('show:launchmenu');
 			});
+		},
+
+		launchWidgetInPane: function (widgetModel) {
+			// var widgetCmp = new OWF.View.Panel({
+			// 	title: widgetModel.namespace,
+			// 	url: widgetModel.url,
+			// 	collapsible: true,
+			// 	closable: true
+			// });
+			var me = this;
+
+			var $pane = $('#main > .hbox > div');
+
+			var widgetCmp = new OWF.View.Window({
+				title: widgetModel.namespace,
+				url: widgetModel.url,
+				closable: true,
+				minimizable: true,
+				maximizable: true,
+
+				container: $pane
+			});
+
+			me.$body.append(widgetCmp.render().el);
+
+			widgetCmp.$el
+				.draggable({
+					containment: $pane,
+					start: function(event, ui) {
+						me.$mask.addClass('mask');
+					},
+					stop: function(event, ui) {
+						me.$mask.removeClass('mask');
+					}
+				})
+				.resizable({
+					helper: "ui-state-highlight"
+				});
 		}
 	});
 
