@@ -10,7 +10,8 @@ OWF.View.Panel = Backbone.View.extend({
 		'click a[title^="collapse"]' : 'collapse',
 		'click a[title^="expand"]' : 'expand',
 		'click a[title^="minimize"]' : 'minimize',
-		'click a[title^="maximize"]' : 'maximize',
+		'click a[title^="maximize"]' : 'toggleMaximize',
+		'click a[title^="restore"]' : 'toggleMaximize',
 		'click a[title^="close"]' : 'close'
 	},
 
@@ -34,7 +35,7 @@ OWF.View.Panel = Backbone.View.extend({
 		this.isCollapsed = false;
 	},
 
-	maximize: function() {},
+	toggleMaximize: function() {},
 	minimize: function() {},
 	
 	close: function() {
