@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        
+        <!-- <link rel="stylesheet" type="text/css" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css"> -->
+        <link rel="stylesheet" href="styles/main.css">
+        <script src="js/libs/modernizr.js"></script>
+    </head>
+    <body>
+
+        <div id="mask" class="hide" ></div>
+        <div id="main">
+
+            <div id="banner" class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <ul class="nav">
+                        <li class="launchmenu-btn">
+                            <a href="#" rel="tooltip" data-original-title="Launch Menu" data-html="true" data-placement="bottom">Launch Menu</a>
+                        </li>
+                        <li class="dashboards-btn">
+                            <a href="#">Dashboards</a>
+                        </li>
+                        <li class="admin-btn">
+                            <a href="#">Administration</a>
+                        </li>
+                    </ul>
+                    <ul id="loggedin-username" class="nav pull-right">
+                        <li><a class="dropdown-toggle" data-toggle="dropdown" href="#">John Doe<i class="icon-cog"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a class="user-profile-btn" tabindex="-1" href="#">Profile</a></li>
+                                <li><a class="themes-btn" tabindex="-1" href="#">Themes</a></li>
+                                <li><a class="about-btn" tabindex="-1" href="#">About</a></li>
+                                <li class="divider"></li>
+                                <li><a class="logout-btn" tabindex="-1" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="dashboard-container"></div>
+            <!-- <div id="dashboard-designer"></div> -->
+
+        </div>
+
+        
+        <!--
+        // basic: #= firstName #
+        // encoded: #: html #
+        // JS: #if (foo) {# bar #}#
+        -->
+        <script id="widget-template" type="text/kendo-template">
+            <div class="header">
+                <span class="title">#=data.title#</span>
+                <ul class="actions nav">
+                    
+                    #if (data.collapsible) {#
+                        <li>
+                            <a title="Collapse" class="collapse-btn">
+                                <i class="icon-chevron-up"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a title="Expand" class="expand-btn">
+                                <i class="icon-chevron-down"></i>
+                            </a>
+                        </li>
+                    #}#
+
+                    #if (data.minimizable) {#
+                        <li>
+                            <a title="Minimize" class="minimize-btn">
+                                <i class="icon-minus"></i>
+                            </a>
+                        </li>
+                    #}#
+
+                    #if (data.maximizable) {#
+                        <li>
+                            <a title="Maximize" class="maximize-btn">
+                                <i class="icon-resize-full"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a title="Restore" class="restore-btn">
+                                <i class="icon-resize-small"></i>
+                            </a>
+                        </li>
+                    #}#
+
+                    #if (data.closable) {#
+                        <li class="close-li">
+                            <a title="Close" class="close-btn">
+                                <i class="icon-remove"></i>
+                            </a>
+                        </li>
+                    #}#
+
+                    <li class="show-all-tools-li">
+                        <a title="Show Actions" class="dropdown-toggle show-all-tools-btn" data-toggle="dropdown">
+                            <i class="icon-reorder"></i>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a class="minimize-btn" title="Minimize" tabindex="-1" href="\#"><i class="icon-minus"></i>Minimize</a></li>
+                            <li><a class="maximize-btn" title="Maximize" tabindex="-1" href="\#"><i class="icon-resize-full"></i>Maximize</a></li>
+                            <li><a class="restore-btn" title="Restore" tabindex="-1" href="\#"><i class="icon-resize-small"></i>Restore</a></li>
+                            <li><a class="close-btn" title="Close" tabindex="-1" href="\#"><i class="icon-remove"></i>Close</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="widget-body">
+                <iframe src="widget.html" frameborder="0"/>
+            </div>
+            </div>
+        </script>
+
+        <script id="launch-menu-item-template" type="text/x-handlebars-template">
+            <img src="{{largeIconUrl}}">
+            <span>{{namespace}}</span>
+        </script>
+        
+        <!-- Dashboard Designer Layout -->
+        <script type="layout" id="dashboard-designer-layout">
+            <div id="designer"></div>
+            <div id="side-panel">
+                <ul class="unstyled">
+                    <li data-type="hbox">|</li>
+                    <li data-type="vbox">-</li>
+                </ul>
+            </div>
+            <div class="actions">
+                <div class="pull-left">
+                    <button class="btn disabled reset-btn">Reset</button>
+                    <button class="btn disabled lock-btn">Lock</button>
+                </div>
+                <div class="pull-right">
+                    <button class="btn save-btn">Save</button>
+                    <button class="btn cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </script>
+
+        <script type="template" id="layout-type-template">
+            <li>{{name}}</li>
+        </script>
+    
+        <script type="text/javascript">
+            if(!console)
+                console.log = console.time = console.timeEnd = function () {};
+            else if(!console.time)
+                console.time = console.timeEnd = function () {};
+
+        </script>
+    <!-- build:js scripts/amd-app.js -->
+        <script src="js/libs/json2.js"></script>
+        <script src="js/libs/jquery.js"></script>
+        <script src="js/libs/lodash.js"></script>
+        <script src="js/libs/backbone.js"></script>
+        <script data-main="js/config" src="js/libs/require.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

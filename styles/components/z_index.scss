@@ -1,0 +1,24 @@
+.modal-backdrop {
+    z-index: 100000;
+}
+
+#launchmenu-advance-panel {
+    z-index: 1000000;
+}
+
+#launch-menu,
+#dashboard-switcher, 
+#about-window,
+#user-profile-window,
+#create-edit-dashboard-window {
+    z-index: 1000001;
+}
+
+#mask, .paneshim {
+    z-index: exponent(10, 10);
+}
+
+.drag-proxy {
+	position: absolute !important;
+	z-index: exponent(10, 11);
+}

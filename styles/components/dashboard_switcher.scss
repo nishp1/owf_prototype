@@ -1,0 +1,80 @@
+#dashboard-switcher {
+    @extend .no-border-radius;
+    border: 5px solid gray;
+    border: 5px solid rgba(gray, 0.5);
+
+    background: $launchMenuBackground;
+    overflow: hidden;
+
+    .tilesview {
+        overflow: hidden;
+    }
+
+    .btn.active {
+        color: $linkColor;
+    }
+    .manage-btn i {
+        padding-right: 0.25em;
+    }
+}
+
+div.dashboard-view {
+    background: $launchMenuWidgetBackground;
+    border: $launchMenuWidgetBorder;
+
+    float: left;
+    margin: 8px 0px 8px 8px;
+    padding: 1em;
+    min-width: 100px;
+    
+    position: relative;
+    text-align: center;
+
+    @include border-radius(5px);
+
+    &:hover {
+        background: $launchMenuWidgetOverBackground;
+    }
+
+    &.selected {
+        background: $launchMenuWidgetOverBackground;
+    }
+
+    & img {
+        display: block;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    & span {
+        display: block;
+        color: black;
+        font: 11px helvetica, arial, sans-serif;
+        height: 2.5em;
+        width: 6em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn-group {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0px;
+
+        .btn {
+            background: $baseColor;
+            border: none;
+
+            i {
+                &:hover {
+                    color: $linkColor;
+                }
+            }
+
+            .icon-remove:hover {
+                color: $btnDangerBackground;
+            }
+        }
+    }
+}

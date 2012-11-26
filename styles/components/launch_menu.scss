@@ -1,0 +1,142 @@
+$launchMenuBackground: $baseColor !default;
+
+$launchMenuWidgetBackground: $launchMenuBackground !default;
+$launchMenuWidgetBorder: 1px solid $launchMenuBackground !default;
+$launchMenuWidgetOverBackground: darken($launchMenuWidgetBackground, 5%) !default;
+$launchMenuWidgetOverBorder: 1px solid $launchMenuWidgetOverBackground !default;
+
+$advancePanelWidth: 250px;
+
+$actionsToolBarHeight: 38px !default;
+$slideToolbarWidth: $actionsToolBarHeight !default;
+
+#launch-menu {
+    overflow: visible;
+    background: $launchMenuBackground;
+    height: 560px;
+    margin: 0px;
+    position: absolute;
+    left: 25%;
+    top: -80%;
+    width: 50%;
+    height: 80%;
+    border: none;
+    @include ctb-box-shadow(-3px 3px 16px rgba(83,83,83,0.8));
+
+    &.in {
+        top: 5%;
+    }
+
+    .actions {
+        position: relative;
+        background: darken($launchMenuBackground, 5%);
+        padding: 4px;
+        margin-left: $slideToolbarWidth;
+
+        .icon-search {
+            position: absolute;
+            font-size: 1.5em;
+            top: 0.4em;
+            left: 0.4em;
+            color: #777;
+        }
+        .search-query {
+            padding-left: 2em;
+        }
+
+        .active {
+            i {
+                color: $linkColor;
+            }
+        }
+    }
+
+    .slide {
+        overflow: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: $slideToolbarWidth;
+        height: auto;
+    }
+
+    .content {
+        margin: $actionsToolBarHeight 0 0 $slideToolbarWidth;
+        overflow: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: auto;
+        height: auto;
+
+        .cards {
+            overflow: hidden;
+            & > .tiles-view {
+                padding: 1em;
+                overflow: hidden;
+            }
+        }
+        
+    }
+}
+
+#launchmenu-advance-panel {
+    position: absolute;
+    width: $advancePanelWidth;
+    background: $baseColor;
+}
+
+div.widget-view {
+    background: $launchMenuWidgetBackground;
+    border: $launchMenuWidgetBorder;
+
+    float: left;
+    margin: 8px 0px 8px 8px;
+    padding: 4px 4px 4px 5px;
+    min-width: 100px;
+    
+    position: relative;
+    text-align: center;
+
+    @include border-radius(5px);
+
+    &:hover {
+        background: $launchMenuWidgetOverBackground;
+    }
+
+    &.selected {
+        background: $launchMenuWidgetOverBackground;
+    }
+
+    & img {
+        display: block;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    & span {
+        display: block;
+        color: black;
+        font: 11px helvetica, arial, sans-serif;
+        height: 2.5em;
+        width: 6em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+tr.widget-view {
+    td {
+        vertical-align: middle;
+    }
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}

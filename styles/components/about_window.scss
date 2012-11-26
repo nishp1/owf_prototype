@@ -1,0 +1,29 @@
+#about-window {
+	@extend .no-border-radius;
+	border: 5px solid gray;
+	border: 5px solid rgba(gray, 0.5);
+
+	padding: 1em;
+
+	& > h1 {
+		@extend .pulse;
+		@extend .animated;
+
+		-webkit-animation-delay: 0.8s;
+		-moz-animation-delay: 0.8s;
+		-o-animation-delay: 0.8s;
+		animation-delay: 0.8s;
+
+		color: $linkColor;
+	}
+
+	& > h1, & > p {
+		text-align: center;
+	}
+
+	& > p {
+		text-shadow: 0 1px 0 #CCC;
+		font-size: 1.25em;
+	}
+
+}

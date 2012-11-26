@@ -1,0 +1,131 @@
+$widgetInactiveBackground: white !default;
+$widgetInactiveColor: #777 !default;
+$widgetInactiveColorHover: $grayDark !default;
+$widgetInactiveBorder: 1px solid #ccc !default;
+
+$widgetActiveBackground: $linkColor !default;
+$widgetActiveColor: white !default;
+$widgetActiveColorHover: $grayDark !default;
+$widgetActiveBorder: 1px solid #ccc !default;
+
+.widget {
+    width: 100%;
+    height: 100%;
+    border: $widgetInactiveBorder;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    .header {
+        @include ctb-gradient-vertical($widgetInactiveBackground, darken($widgetInactiveBackground, 5%));
+        line-height: 2.5em;
+        position: relative;
+        white-space: nowrap;
+
+        span {
+            padding: 0 0 0 0.5em;
+            color: $widgetInactiveColor;
+            overflow: hidden;
+            cursor: default;
+            text-overflow: ellipsis;
+        }
+
+        a {
+            cursor: pointer;
+        }
+        .actions {
+            margin: 0;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            white-space: nowrap;
+
+            & > li {
+                float: left;
+                line-height: $baseFontSize * 2.5 - 1;
+
+                &.close-li {
+                    padding: 0 0.5em 0 0;
+                }
+            }
+            
+            & > li > a {
+                text-decoration: none;
+                color: $widgetInactiveColor;
+
+                &:hover {
+                    background: transparent;
+                    color: $widgetInactiveColorHover;
+                }
+            }
+        }
+    }
+
+    .show-all-tools-li  {
+        position: relative;
+        background: darken($widgetInactiveBackground, 10%);
+        padding: 0 1em;
+
+        .dropdown-menu {
+            right: 0px;
+            left: auto;
+            margin: 0;
+            padding: 0;
+
+            i {
+                margin-right: 1em;
+            }
+        }
+    }
+}
+
+.widget.active{
+    border: $widgetActiveBorder;
+    box-shadow: 2px 2px 2em #ccc;
+    .header {
+        @include ctb-gradient-vertical($widgetActiveBackground, darken($widgetActiveBackground, 5%));
+
+        span {
+            color: $widgetActiveColor;
+        }
+        .actions > li > a {
+            color: $widgetActiveColor;
+
+            &:hover {
+                color: $widgetActiveColorHover;
+            }
+        }
+    }
+    .show-all-tools-li {
+        background: darken($widgetActiveBackground, 10%);
+    }
+}
+
+
+.widget-body {
+    border: 0px;
+    background: $baseColor;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    margin-top: 2.5em;
+
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// fit pane widget
+.pane > iframe {
+    height: 100%;
+}
+
+.widget.window .header {
+    cursor: move;
+}

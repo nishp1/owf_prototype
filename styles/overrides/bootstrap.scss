@@ -1,0 +1,17 @@
+.dropdown-menu {
+    li > a {
+        line-height: 32px;
+    }
+}
+
+.dropdown-menu,
+.btn-group > .btn:first-child,
+.btn-group > .btn:last-child,
+.btn-group > .dropdown-toggle {
+	@include border-radius(0px);
+}
+
+.tooltip-inner {
+	padding-left: 2em;
+	padding-right: 2em;
+}

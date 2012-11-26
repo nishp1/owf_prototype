@@ -1,0 +1,10 @@
+#user-profile-window {
+	@extend .no-border-radius;
+	border: 5px solid gray;
+	border: 5px solid rgba(gray, 0.5);
+
+	.row {
+		line-height: 3em;
+	}
+
+}

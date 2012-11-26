@@ -1,0 +1,48 @@
+#dashboard-designer {
+    background: $baseColor;
+}
+
+#designer {
+    position: absolute;
+    bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    width: auto;
+    height: auto;
+    margin: 0 120px 3em 0;
+    background: $baseColor;
+
+    &.highlight, .pane.highlight {
+        background-color: $linkColor;
+        background-color: rgba($linkColor,0.1);
+    }
+}
+
+#side-panel {
+    position: absolute;
+    float: right;
+    width: 120px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: darken($baseColor, 10%);
+
+    & > ul > li {
+        text-align: center;
+        font-size: 2em;
+        padding: 1em;
+    }
+}
+
+#dashboard-designer .actions {
+    background: darken($baseColor, 10%);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3em;
+    padding: 0 6px;
+    .btn {
+        margin-top: 6px;
+    }
+}
