@@ -1,0 +1,173 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="css/jquery-ui-1.8.21.custom.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap-responsive.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- TODO:
+		- Add Twitter Bootstrap SASS/Compass Version & upgrade to Bootstrap 2.1
+		- Invetigate AMD/RequireJS
+		- Play with other libraries, there is a lot of Boilerplace code required with Backbone
+				- CanJS
+				- AngularJS
+				- EmberJS
+	-->
+
+	<!--<script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script> -->
+</head>
+<body>
+		<!-- TODO: needs to go, and be replaced by fom-factor specific markup-->
+		<div id="banner" class="navbar">
+			<div class="navbar-inner">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="launchmenu-btn"><a href="#">Launchpad</a></li>
+						<li class="dashboards-btn"><a href="#">Dashboards</a></li>
+						<li class="settings-btn"><a href="#">Settings</a></li>
+						<li class="admin-btn"><a href="#">Admin Tools</a></li>
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#">Test Admin 1</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+		
+		<div id="main">
+			<div class="dashboard hbox">
+				<div class="left red boxFlex0 pane"></div>
+				<div class="right vbox">
+					<div class="left hbox">
+						<div class="left green boxFlex0 pane"></div>
+						<div class="right blue pane"></div>
+					</div>
+					<div class="right yellow pane"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="launch-menu" class="modal">
+			
+			<div id="launch-menu-header">
+
+				<div id="launch-menu-header-selected-widget">
+
+					<div id="launch-menu-header-selected-widget-thumb">
+						<img src="themes/common/images/adm-tools/Approvals64.png" class="thumb">
+						<a class="btn">Launch</a>
+					</div>
+
+					<div id="launch-menu-header-selected-widget-info">
+						<span>Name</span>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat.</p>
+					</div>
+				</div>
+
+				<div id="launch-menu-controls">
+					<input type="text" class="search-query" placeholder="Search by name...">
+				</div>
+
+			</div>
+
+		</div>
+
+		<div id="doc-mask"></div>
+		
+		<script id="panel-template" type="text/x-handlebars-template">
+			<div class="header">
+				<span>{{title}}</span>
+				<div class="pull-right">
+					{{#if collapsible}}
+					<a title="collapse">
+						<i class="icon-chevron-up"></i>
+					</a>
+					<a title="expand">
+						<i class="icon-chevron-down"></i>
+					</a>
+					{{/if}}
+					{{#if minimizable}}
+					<a title="minimize">
+						<i class="icon-minus"></i>
+					</a>
+					{{/if}}
+					{{#if maximizable}}
+					<a title="maximize">
+						<i class="icon-resize-full"></i>
+					</a>
+					{{/if}}
+					{{#if closable}}
+					<a title="close">
+						<i class="icon-remove"></i>
+					</a>
+					{{/if}}
+				</div>
+			</div>
+			<iframe src="https://www.owfgoss.org" frameborder="0" seamless/>
+			</div>
+		</script>
+
+		<script id="launch-menu-item-template" type="text/x-handlebars-template">
+			<img src="{{largeIconUrl}}">
+			<span>{{namespace}}</span>
+		</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.js"><\/script>')</script>
+<script src="js/libs/handlebars-1.0.0.beta.6.js"></script>
+<script src="js/libs/underscore.js"></script>
+<script src="js/libs/backbone.js"></script>
+<script src="js/libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/libs/jquery-ui/jquery.ui.core.js"></script>
+<script src="js/libs/jquery-ui/jquery.ui.widget.js"></script>
+<script src="js/libs/jquery-ui/jquery.ui.mouse.js"></script>
+<script src="js/libs/jquery-ui/jquery.ui.draggable.js"></script>
+<script src="js/libs/jquery-ui/jquery.ui.resizable.js"></script>
+<!-- <script src="js/libs/jquery-ui/jquery.ui.position.js"></script> -->
+<script src="js/plugins.js"></script>
+
+
+<script src="js/namespace.js"></script>
+
+<!-- models -->
+<script src="js/models/widget.js"></script>
+
+<!-- collections -->
+<script src="js/collections/widgets.js"></script>
+
+<!-- views -->
+<script src="js/views/banner.js"></script>
+<script src="js/views/panel.js"></script>
+<script src="js/views/window.js"></script>
+<script src="js/views/launchmenu/selected-widget.js"></script>
+<script src="js/views/launchmenu/thumbnail-layout.js"></script>
+
+<!-- controller -->
+<script src="js/controllers/controller.js"></script>
+<script src="js/controllers/launchmenu.js"></script>
+<!-- app -->
+<script src="js/app.js"></script>
+
+</body>
+</html>
