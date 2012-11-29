@@ -248,43 +248,121 @@
   }
 }
 
-/* line 46, utils/animations.scss */
+@-moz-keyframes slideInLeft {
+  /* line 46, utils/animations.scss */
+  0% {
+    -moz-transform: translateX(150%);
+  }
+
+  /* line 50, utils/animations.scss */
+  100% {
+    -moz-transform: translateX(0);
+  }
+}
+
+@-o-keyframes slideInLeft {
+  /* line 56, utils/animations.scss */
+  0% {
+    -o-transform: translateX(150%);
+  }
+
+  /* line 60, utils/animations.scss */
+  100% {
+    -o-transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  /* line 66, utils/animations.scss */
+  0% {
+    transform: translateX(150%);
+  }
+
+  /* line 70, utils/animations.scss */
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* line 75, utils/animations.scss */
 .slideInLeft {
   -webkit-animation-name: slideInLeft;
+  -moz-animation-name: slideInLeft;
+  -o-animation-name: slideInLeft;
+  animation-name: slideInLeft;
 }
 
 @-webkit-keyframes slideOutLeft {
-  /* line 51, utils/animations.scss */
+  /* line 83, utils/animations.scss */
   0% {
     -webkit-transform: translateX(0);
   }
 
-  /* line 55, utils/animations.scss */
+  /* line 87, utils/animations.scss */
   100% {
     -webkit-transform: translateX(-100%);
   }
 }
 
-/* line 60, utils/animations.scss */
+/* line 92, utils/animations.scss */
 .slideOutLeft {
   -webkit-animation-name: slideOutLeft;
 }
 
 @-webkit-keyframes slideOutRight {
-  /* line 65, utils/animations.scss */
+  /* line 97, utils/animations.scss */
   0% {
     -webkit-transform: translateX(0);
   }
 
-  /* line 69, utils/animations.scss */
+  /* line 101, utils/animations.scss */
   100% {
     -webkit-transform: translateX(100%);
   }
 }
 
-/* line 74, utils/animations.scss */
+@-moz-keyframes slideOutRight {
+  /* line 107, utils/animations.scss */
+  0% {
+    -moz-transform: translateX(0);
+  }
+
+  /* line 111, utils/animations.scss */
+  100% {
+    -moz-transform: translateX(100%);
+  }
+}
+
+@-o-keyframes slideOutRight {
+  /* line 117, utils/animations.scss */
+  0% {
+    -o-transform: translateX(0);
+  }
+
+  /* line 121, utils/animations.scss */
+  100% {
+    -o-transform: translateX(100%);
+  }
+}
+
+@keyframes slideOutRight {
+  /* line 127, utils/animations.scss */
+  0% {
+    transform: translateX(0);
+  }
+
+  /* line 131, utils/animations.scss */
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* line 136, utils/animations.scss */
 .slideOutRight {
   -webkit-animation-name: slideOutRight;
+  -moz-animation-name: slideOutRight;
+  -o-animation-name: slideOutRight;
+  animation-name: slideOutRight;
 }
 
 /*
@@ -7773,8 +7851,12 @@ tr.widget-view img {
 .dashboard .k-splitbar {
   border-width: 0px !important;
 }
-
 /* line 165, components/dashboard.scss */
+.dashboard.box, .dashboard .box {
+  overflow: hidden;
+}
+
+/* line 169, components/dashboard.scss */
 .no-cssanimations .dashboard.inactive {
   display: none;
 }

@@ -161,7 +161,11 @@ $dashboardAnimationDuration: 1.5s !default;
     .k-splitbar {
         border-width: 0px !important;
     }
+
+    &.box, .box {
+        overflow: hidden;
+    }
 }
 .no-cssanimations .dashboard.inactive {
-    display: none
+    display: none;
 }

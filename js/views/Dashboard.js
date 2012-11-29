@@ -35,8 +35,13 @@ function(app, DashboardService, $, _, Backbone) {
 
         layout: function () {
             // parent element must have desired width and height set
-            // find all box in parent node as dashboard can be a box also
-            $('.box', this.$el.parent()).each(function() {
+            // find all child boxes including current element
+
+            var $boxes = this.$el.hasClass('box') ? 
+                            this.$el.find('.box').andSelf() :
+                            this.$el.find('.box');
+
+            $boxes.each(function() {
                 var box = $(this),
                     config = box.data('config');
 
@@ -57,7 +62,7 @@ function(app, DashboardService, $, _, Backbone) {
         hide: function (animate) {
             var me = this,
                 $el = this.$el;
-            
+
             function afterAnimation () {
                 $el.removeClass('active ' + me.animateOutClass).addClass('inactive');
             }
@@ -78,7 +83,7 @@ function(app, DashboardService, $, _, Backbone) {
         show: function (animate) {
             var me = this,
                 $el = this.$el;
-
+            
             function afterAnimation () {
                 $el.addClass('active').removeClass(me.animateInClass);
             }
