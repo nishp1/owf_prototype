@@ -68,7 +68,6 @@ function(app, DashboardCollection, WidgetsCollection, DashboardView, CreateEditD
                 this.activeDashboard.layout().show(animate);
             }
             console.timeEnd(dashboardName);
-            app.trigger('dashboard:activated', model, this.activeDashboard);
         },
 
         createDashboard: function () {
