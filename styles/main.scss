@@ -14,7 +14,7 @@ $baseColor: #fff;
 @import "utils/functions";
 @import "utils/animations";
 @import "compass_twitter_bootstrap_awesome";
-@import "compass_twitter_bootstrap_quirks_mode";
+/*@import "compass_twitter_bootstrap_quirks_mode";*/
 @import "overrides/bootstrap.scss";
 
 .modal-backdrop,
@@ -24,11 +24,11 @@ $baseColor: #fff;
 
 // bannerGray: #6E7478;
 
-* {
+/** {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
+}*/
 
 .no-border-radius {
     -webkit-border-radius: 0px !important;
@@ -87,8 +87,13 @@ html, body, #main, #dashboard-container, #dashboard-designer, .dashboard {
 
 // fit pane
 .dashboard > .pane {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
 }
 
 // for widget drag and drop

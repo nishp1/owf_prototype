@@ -63,6 +63,7 @@ function(app, DashboardModel, $) {
                     name: name,
                     description: description
                 });
+                    alert('blah');
                 me.hide().then(function () {
                     me.remove();
                     me._createDeferred.resolve( dashboard );
@@ -81,11 +82,10 @@ function(app, DashboardModel, $) {
         show: function() {
             var dfd = $.Deferred();
 
-            this.$el.modal({
-                show: true,
-                backdrop: 'static'
-            }).one('shown', function () {
+            this.$el.one('shown', function () {
                 dfd.resolve();
+            }).modal({
+                show: true
             });
 
             return dfd.promise();
@@ -94,9 +94,9 @@ function(app, DashboardModel, $) {
         hide: function() {
             var dfd = $.Deferred();
 
-            this.$el.modal('hide').one('backdrophidden', function () {
+            this.$el.one('backdrophidden', function () {
                 dfd.resolve();
-            });
+            }).modal('hide');
 
             return dfd.promise();
         }

@@ -18,9 +18,11 @@ $widgetActiveBorder: 1px solid #ccc !default;
 
     .header {
         @include ctb-gradient-vertical($widgetInactiveBackground, darken($widgetInactiveBackground, 5%));
+        @include ctb-text-overflow();
         line-height: 2.5em;
-        position: relative;
-        white-space: nowrap;
+
+        /*position: relative;
+        white-space: nowrap;*/
 
         span {
             padding: 0 0 0 0.5em;
@@ -77,6 +79,10 @@ $widgetActiveBorder: 1px solid #ccc !default;
             }
         }
     }
+
+    .show-all-tools-btn {
+        margin-bottom: 0px; // IE7
+    }
 }
 
 .widget.active{
@@ -114,6 +120,7 @@ $widgetActiveBorder: 1px solid #ccc !default;
     width: auto;
     height: auto;
     margin-top: 2.5em;
+    z-index: -1;
 
     iframe {
         width: 100%;

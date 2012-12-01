@@ -18,7 +18,7 @@ function(app, TilesView, $) {
         template:   '<div class="pull-right">' +
                         '<div class="btn-group">' +
                             '<button class="btn manage-btn"><i class="icon-cogs"></i>  Manage</button>' +
-                            '<button class="btn create-btn"><i class="icon-plus"></i></button>' +
+                            '<button class="btn create-btn"><i class="icon-plus"></i>  Create</button>' +
                         '</div>' +
                     '</div>',
 

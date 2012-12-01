@@ -7139,31 +7139,7 @@ a.label:hover, a.badge:hover {
   position: fixed;
 }
 
-/* line 17, _compass_twitter_bootstrap_quirks_mode.scss */
-select,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
-.uneditable-input {
-  height: 30px;
-}
-
-/* line 21, _compass_twitter_bootstrap_quirks_mode.scss */
-.dropdown-menu .divider {
-  height: 2px;
-}
-
+/*@import "compass_twitter_bootstrap_quirks_mode";*/
 /* line 2, overrides/bootstrap.scss */
 .dropdown-menu li > a {
   line-height: 32px;
@@ -7194,13 +7170,11 @@ input[type="color"],
   opacity: 0.3;
 }
 
-/* line 27, main.scss */
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
+/** {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}*/
 /* line 33, main.scss */
 .no-border-radius, #about-window, #user-profile-window, #dashboard-switcher, #create-edit-dashboard-window {
   -webkit-border-radius: 0px !important;
@@ -7267,18 +7241,23 @@ html, body, #main, #dashboard-container, #dashboard-designer, .dashboard {
 
 /* line 89, main.scss */
 .dashboard > .pane {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
 }
 
-/* line 95, main.scss */
+/* line 100, main.scss */
 .paneshim {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-/* line 103, main.scss */
+/* line 108, main.scss */
 .paneshim.over {
   background: rgba(0, 0, 0, 0.5);
 }
@@ -7398,11 +7377,14 @@ html, body, #main, #dashboard-container, #dashboard-designer, .dashboard {
   background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0', GradientType=0);
-  line-height: 2.5em;
-  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  line-height: 2.5em;
+  /*position: relative;
+  white-space: nowrap;*/
 }
-/* line 25, components/widget.scss */
+/* line 27, components/widget.scss */
 .widget .header span {
   padding: 0 0 0 0.5em;
   color: #777777;
@@ -7410,11 +7392,11 @@ html, body, #main, #dashboard-container, #dashboard-designer, .dashboard {
   cursor: default;
   text-overflow: ellipsis;
 }
-/* line 33, components/widget.scss */
+/* line 35, components/widget.scss */
 .widget .header a {
   cursor: pointer;
 }
-/* line 36, components/widget.scss */
+/* line 38, components/widget.scss */
 .widget .header .actions {
   margin: 0;
   position: absolute;
@@ -7422,49 +7404,53 @@ html, body, #main, #dashboard-container, #dashboard-designer, .dashboard {
   right: 0px;
   white-space: nowrap;
 }
-/* line 43, components/widget.scss */
+/* line 45, components/widget.scss */
 .widget .header .actions > li {
   float: left;
   line-height: 34px;
 }
-/* line 47, components/widget.scss */
+/* line 49, components/widget.scss */
 .widget .header .actions > li.close-li {
   padding: 0 0.5em 0 0;
 }
-/* line 52, components/widget.scss */
+/* line 54, components/widget.scss */
 .widget .header .actions > li > a {
   text-decoration: none;
   color: #777777;
 }
-/* line 56, components/widget.scss */
+/* line 58, components/widget.scss */
 .widget .header .actions > li > a:hover {
   background: transparent;
   color: #333333;
 }
-/* line 64, components/widget.scss */
+/* line 66, components/widget.scss */
 .widget .show-all-tools-li {
   position: relative;
   background: #e6e6e6;
   padding: 0 1em;
 }
-/* line 69, components/widget.scss */
+/* line 71, components/widget.scss */
 .widget .show-all-tools-li .dropdown-menu {
   right: 0px;
   left: auto;
   margin: 0;
   padding: 0;
 }
-/* line 75, components/widget.scss */
+/* line 77, components/widget.scss */
 .widget .show-all-tools-li .dropdown-menu i {
   margin-right: 1em;
 }
+/* line 83, components/widget.scss */
+.widget .show-all-tools-btn {
+  margin-bottom: 0px;
+}
 
-/* line 82, components/widget.scss */
+/* line 88, components/widget.scss */
 .widget.active {
   border: 1px solid #cccccc;
   box-shadow: 2px 2px 2em #ccc;
 }
-/* line 85, components/widget.scss */
+/* line 91, components/widget.scss */
 .widget.active .header {
   background-color: #0081c2;
   background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
@@ -7475,24 +7461,24 @@ html, body, #main, #dashboard-container, #dashboard-designer, .dashboard {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0085c7', endColorstr='#0074ad', GradientType=0);
 }
-/* line 88, components/widget.scss */
+/* line 94, components/widget.scss */
 .widget.active .header span {
   color: white;
 }
-/* line 91, components/widget.scss */
+/* line 97, components/widget.scss */
 .widget.active .header .actions > li > a {
   color: white;
 }
-/* line 94, components/widget.scss */
+/* line 100, components/widget.scss */
 .widget.active .header .actions > li > a:hover {
   color: #333333;
 }
-/* line 99, components/widget.scss */
+/* line 105, components/widget.scss */
 .widget.active .show-all-tools-li {
   background: #006699;
 }
 
-/* line 105, components/widget.scss */
+/* line 111, components/widget.scss */
 .widget-body {
   border: 0px;
   background: white;
@@ -7504,19 +7490,20 @@ html, body, #main, #dashboard-container, #dashboard-designer, .dashboard {
   width: auto;
   height: auto;
   margin-top: 2.5em;
+  z-index: -1;
 }
-/* line 118, components/widget.scss */
+/* line 125, components/widget.scss */
 .widget-body iframe {
   width: 100%;
   height: 100%;
 }
 
-/* line 125, components/widget.scss */
+/* line 132, components/widget.scss */
 .pane > iframe {
   height: 100%;
 }
 
-/* line 129, components/widget.scss */
+/* line 136, components/widget.scss */
 .widget.window .header {
   cursor: move;
 }
@@ -7612,6 +7599,7 @@ div.widget-view {
   margin: 8px 0px 8px 8px;
   padding: 4px 4px 4px 5px;
   min-width: 100px;
+  max-width: 8em;
   position: relative;
   text-align: center;
   -webkit-border-radius: 5px;
@@ -7620,15 +7608,15 @@ div.widget-view {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 107, components/launch_menu.scss */
+/* line 108, components/launch_menu.scss */
 div.widget-view:hover {
   background: #f2f2f2;
 }
-/* line 111, components/launch_menu.scss */
+/* line 112, components/launch_menu.scss */
 div.widget-view.selected {
   background: #f2f2f2;
 }
-/* line 115, components/launch_menu.scss */
+/* line 116, components/launch_menu.scss */
 div.widget-view img {
   display: block;
   width: 50px;
@@ -7637,7 +7625,7 @@ div.widget-view img {
   margin-left: auto;
   margin-right: auto;
 }
-/* line 123, components/launch_menu.scss */
+/* line 124, components/launch_menu.scss */
 div.widget-view span {
   display: block;
   color: black;
@@ -7648,11 +7636,11 @@ div.widget-view span {
   margin-right: auto;
 }
 
-/* line 135, components/launch_menu.scss */
+/* line 136, components/launch_menu.scss */
 tr.widget-view td {
   vertical-align: middle;
 }
-/* line 138, components/launch_menu.scss */
+/* line 139, components/launch_menu.scss */
 tr.widget-view img {
   width: 24px;
   height: 24px;
@@ -7889,6 +7877,7 @@ div.dashboard-view {
   margin: 8px 0px 8px 8px;
   padding: 1em;
   min-width: 100px;
+  max-width: 164px;
   position: relative;
   text-align: center;
   -webkit-border-radius: 5px;
@@ -7897,22 +7886,22 @@ div.dashboard-view {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 35, components/dashboard_switcher.scss */
+/* line 36, components/dashboard_switcher.scss */
 div.dashboard-view:hover {
   background: #f2f2f2;
 }
-/* line 39, components/dashboard_switcher.scss */
+/* line 40, components/dashboard_switcher.scss */
 div.dashboard-view.selected {
   background: #f2f2f2;
 }
-/* line 43, components/dashboard_switcher.scss */
+/* line 44, components/dashboard_switcher.scss */
 div.dashboard-view img {
   display: block;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 49, components/dashboard_switcher.scss */
+/* line 50, components/dashboard_switcher.scss */
 div.dashboard-view span {
   display: block;
   color: black;
@@ -7922,23 +7911,23 @@ div.dashboard-view span {
   margin-left: auto;
   margin-right: auto;
 }
-/* line 59, components/dashboard_switcher.scss */
+/* line 60, components/dashboard_switcher.scss */
 div.dashboard-view .btn-group {
   display: none;
   position: absolute;
   top: 64px;
   left: 0px;
 }
-/* line 65, components/dashboard_switcher.scss */
+/* line 66, components/dashboard_switcher.scss */
 div.dashboard-view .btn-group .btn {
   background: white;
   border: none;
 }
-/* line 70, components/dashboard_switcher.scss */
+/* line 71, components/dashboard_switcher.scss */
 div.dashboard-view .btn-group .btn i:hover {
   color: #0088cc;
 }
-/* line 75, components/dashboard_switcher.scss */
+/* line 76, components/dashboard_switcher.scss */
 div.dashboard-view .btn-group .btn .icon-remove:hover {
   color: #ee5f5b;
 }

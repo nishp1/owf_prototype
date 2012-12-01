@@ -88,7 +88,6 @@ function(app, DashboardCollection, WidgetsCollection, DashboardView, CreateEditD
                 dd = new DashboardDesigner();
 
             dd.render();
-
             $(document.body).append(dd.$el);
 
             dd.design().then(function(config) {
