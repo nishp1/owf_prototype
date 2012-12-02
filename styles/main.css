@@ -7840,7 +7840,7 @@ tr.widget-view img {
   border-width: 0px !important;
 }
 /* line 165, components/dashboard.scss */
-.dashboard.box, .dashboard .box {
+.dashboard.box, .dashboard .box, .dashboard .pane {
   overflow: hidden;
 }
 
