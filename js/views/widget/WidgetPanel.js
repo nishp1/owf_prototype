@@ -2,7 +2,8 @@ define([
     'app',
 
     // Libraries.
-    'backbone'
+    'backbone',
+    "libs/kendoui.web/source/js/kendo.core"
 ],
 
 function(app, Backbone) {

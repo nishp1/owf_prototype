@@ -7407,7 +7407,7 @@ html, body, #main, #dashboard-container, #dashboard-designer, .dashboard {
 /* line 45, components/widget.scss */
 .widget .header .actions > li {
   float: left;
-  line-height: 34px;
+  line-height: 33px;
 }
 /* line 49, components/widget.scss */
 .widget .header .actions > li.close-li {
