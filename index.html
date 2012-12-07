@@ -159,10 +159,13 @@
         </script>
     
         <script type="text/javascript">
-            if(!console)
-                console.log = console.time = console.timeEnd = function () {};
-            else if(!console.time)
-                console.time = console.timeEnd = function () {};
+                // console = {};
+                // console.log = console.time = console.timeEnd = function () {};
+            if(console) {
+                if(!console.time) {
+                    console.time = console.timeEnd = function () {};
+                }
+            }
 
         </script>
     <!-- build:js scripts/amd-app.js -->

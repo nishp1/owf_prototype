@@ -63,7 +63,7 @@ function(app, DashboardModel, $) {
                     name: name,
                     description: description
                 });
-                    alert('blah');
+                
                 me.hide().then(function () {
                     me.remove();
                     me._createDeferred.resolve( dashboard );
